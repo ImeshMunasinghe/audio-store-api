@@ -9,7 +9,7 @@ export class OrdersService {
   async checkout(userId: string, createOrderDto: CreateOrderDto) {
     // 1. Open the ACID Transaction wrapper
     return this.prisma.$transaction(async (tx) => {
-      const orderItemsData = [];
+      const orderItemsData: any[] = [];
 
       // 2. Loop through every item the customer wants to buy
       for (const item of createOrderDto.items) {
